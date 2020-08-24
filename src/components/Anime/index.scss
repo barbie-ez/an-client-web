@@ -1,0 +1,10 @@
+@import "../../styles/variables";
+
+.article {
+  background-color: $primary !important;
+  padding-top: 3em;
+
+  h2 {
+    color: $secondary;
+  }
+}

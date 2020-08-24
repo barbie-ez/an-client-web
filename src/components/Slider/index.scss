@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+.carousel-caption {
+  h3,
+  p {
+    color: white;
+    text-align: right;
+  }
+  h3 {
+    font-size: 6vw;
+  }
+  p {
+    font-size: 2vw;
+  }
+}
