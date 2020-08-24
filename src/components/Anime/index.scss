@@ -3,8 +3,16 @@
 .article {
   background-color: $primary !important;
   padding-top: 3em;
+  padding-bottom: 3em;
 
+  .anime {
+    margin-bottom: 3em;
+    background-color: $secondary;
+  }
   h2 {
     color: $secondary;
+    padding-bottom: 1em;
+    text-align: center;
+    border-bottom: 1px;
   }
 }

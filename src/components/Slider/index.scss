@@ -1,4 +1,10 @@
 @import "../../styles/variables";
+.carousel-item {
+  img {
+    height: 40vw;
+    object-fit: cover;
+  }
+}
 .carousel-caption {
   h3,
   p {

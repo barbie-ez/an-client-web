@@ -1,5 +1,4 @@
 import React from "react";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -20,6 +19,8 @@ export const Header = () => {
               <a href="#">Genre</a>
               <a href="#">Studio</a>
               <a href="#">Forum</a>
+              <a href="#">Login</a>
+              <a href="#">SignUp</a>
             </nav>
           </Col>
         </Row>

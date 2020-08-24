@@ -2,16 +2,15 @@ import React from "react";
 import logo from "./logo.svg";
 import "./styles/index.scss";
 import { Header } from "./components/Header/index";
-import { Slider } from "./components/Slider";
-import { Card } from "react-bootstrap";
-import { Anime } from "./components/Anime";
+import { Footer } from "./components/Footer/index";
+import AnimesPage from "./containers/AnimesPage";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Slider />
-      <Anime />
+      <AnimesPage />
+      <Footer />
     </div>
   );
 }
