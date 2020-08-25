@@ -4,14 +4,24 @@ import "./styles/index.scss";
 import { Header } from "./components/Header/index";
 import { Footer } from "./components/Footer/index";
 import AnimesPage from "./containers/AnimesPage";
+import AnimeDetails from "./containers/AnimeDetails";
+import { Provider } from "react-redux";
+import store from "./reducers/store";
+import { BrowserRouter, Route } from "react-router-dom";
+import Switch from "react-bootstrap/esm/Switch";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <AnimesPage />
-      <Footer />
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={AnimesPage} />
+          <Route path="/anime/:id" component={AnimeDetails} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -1,5 +1,41 @@
 @import "../../styles/variables";
 
+.modal-content {
+  background-color: $primary !important;
+}
+.modal-header {
+  border: 0;
+  border-bottom: 0 !important;
+  color: $secondary;
+  .close {
+    color: $secondary;
+  }
+}
+.modal-body {
+  color: $secondary;
+  .spinner-border {
+    margin-left: 47%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  button {
+    margin-top: 1em;
+    background-color: $secondary;
+    padding: 0.5em 0.3em 0.5em 0.3em;
+    border-radius: 10px;
+    width: 100%;
+    &:hover {
+      background-color: $secondary;
+      padding: 0.5em 0.3em 0.5em 0.3em;
+      border-radius: 10px;
+    }
+    &:focus {
+      background-color: $secondary;
+      padding: 0.5em 0.3em 0.5em 0.3em;
+      border-radius: 10px;
+    }
+  }
+}
 header {
   padding: 0.75em 0;
   background-color: $primary;
@@ -21,12 +57,48 @@ header {
       cursor: pointer;
     }
   }
+  .btn-primary:not(:disabled):not(.disabled).active,
+  .btn-primary:not(:disabled):not(.disabled):active,
+  .show > .btn-primary.dropdown-toggle {
+    background-color: $primary;
+    border: 0;
+    font-weight: bold;
+    color: $secondary;
+  }
+
   .nav-right {
     text-transform: uppercase;
     display: flex;
     height: 100%;
     justify-content: flex-end;
     align-items: center;
+
+    .dropdown button {
+      background-color: $primary;
+      border: 0;
+      font-weight: bold;
+      color: $secondary;
+
+      &:focus {
+        background-color: $primary;
+        border: 0;
+        font-weight: bold;
+        color: $secondary;
+        box-shadow: 0 0 0 0 !important;
+      }
+      &:hover {
+        background-color: $primary;
+        border: 0;
+        font-weight: bold;
+        color: $secondary;
+      }
+      &:active {
+        background-color: $primary;
+        border: 0;
+        font-weight: bold;
+        color: $secondary;
+      }
+    }
   }
   @media only screen and (max-width: 45em) {
     .nav-right {
