@@ -29,7 +29,7 @@ export const loginUser = (user) => async (dispatch) => {
       dispatch(
         asyncActions(LOG_IN).failure(
           true,
-          "Please Enter  a Username or Password"
+          "Please Enter  a Username or Passwords"
         )
       );
     } else {
