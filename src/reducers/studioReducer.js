@@ -29,7 +29,7 @@ const studioReducer = (state = initState, action) => {
     case asyncActionName(CREATE_STUDIO).success:
       return {
         ...state,
-        studio: action.payload.studio,
+        studio: action.payload,
       };
 
     case asyncActionName(VIEW_STUDIO).failure:

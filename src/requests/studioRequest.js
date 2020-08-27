@@ -13,16 +13,25 @@ import { viewStudioConstants, studioConstants } from "../constants/constants";
 export const createStudio = (studio) => async (dispatch) => {
   dispatch(asyncActions(CREATE_STUDIO).loading(true));
   try {
-    const response = axios.post(studioConstants.CREATE_STUDIO, studio, {
-      headers: { Authorization: auth.fetchToken() },
-    });
+    const response = await await axios.post(
+      studioConstants.CREATE_STUDIO,
+      studio,
+      {
+        headers: { Authorization: `Bearer ${auth.fetchToken()} ` },
+      }
+    );
     if (response.status === 201) {
-      dispatch(asyncActions(CREATE_STUDIO).success(response.data));
+      dispatch(asyncActions(CREATE_STUDIO).success(response.data.returnObject));
       dispatch(asyncActions(CREATE_STUDIO).loading(false));
     }
   } catch (error) {
     if (error.response.status === 401) {
-      dispatch(asyncActions(CREATE_STUDIO).failure(true, error.response.data));
+      dispatch(
+        asyncActions(CREATE_STUDIO).failure(
+          true,
+          error.response.data.returnObject
+        )
+      );
     } else {
       dispatch(asyncActions(CREATE_STUDIO).failure(true, error.message));
     }
@@ -33,18 +42,26 @@ export const createStudio = (studio) => async (dispatch) => {
 export const viewStudio = (id) => async (dispatch) => {
   dispatch(asyncActions(VIEW_STUDIO).loading(true));
   try {
-    const response = axios.get(viewStudioConstants(id).VIEW_STUDIO, {
-      id,
-      headers: { Authorization: auth.fetchToken() },
-    });
+    const response = await await axios.get(
+      viewStudioConstants(id).VIEW_STUDIO,
+      {
+        id,
+        headers: { Authorization: `Bearer ${auth.fetchToken()} ` },
+      }
+    );
 
     if (response.status === 200) {
-      dispatch(asyncActions(VIEW_STUDIO).success(response.data));
+      dispatch(asyncActions(VIEW_STUDIO).success(response.data.returnObject));
       dispatch(asyncActions(VIEW_STUDIO).loading(false));
     }
   } catch (error) {
     if (error.response.status === 401) {
-      dispatch(asyncActions(VIEW_STUDIO).failure(true, error.response.data));
+      dispatch(
+        asyncActions(VIEW_STUDIO).failure(
+          true,
+          error.response.data.returnObject
+        )
+      );
     } else {
       dispatch(asyncActions(VIEW_STUDIO).failure(true, error.message));
     }
@@ -55,19 +72,27 @@ export const viewStudio = (id) => async (dispatch) => {
 export const viewStudioWithAnime = (id) => async (dispatch) => {
   dispatch(asyncActions(VIEW_STUDIO_WITH_ANIME).loading(true));
   try {
-    const response = axios.get(viewStudioConstants(id).VIEW_STUDIO_WITH_ANIME, {
-      id,
-      headers: { Authorization: auth.fetchToken() },
-    });
+    const response = await await axios.get(
+      viewStudioConstants(id).VIEW_STUDIO_WITH_ANIME,
+      {
+        id,
+        headers: { Authorization: `Bearer ${auth.fetchToken()} ` },
+      }
+    );
 
     if (response.status === 200) {
-      dispatch(asyncActions(VIEW_STUDIO_WITH_ANIME).success(response.data));
+      dispatch(
+        asyncActions(VIEW_STUDIO_WITH_ANIME).success(response.data.returnObject)
+      );
       dispatch(asyncActions(VIEW_STUDIO_WITH_ANIME).loading(false));
     }
   } catch (error) {
     if (error.response.status === 401) {
       dispatch(
-        asyncActions(VIEW_STUDIO_WITH_ANIME).failure(true, error.response.data)
+        asyncActions(VIEW_STUDIO_WITH_ANIME).failure(
+          true,
+          error.response.data.returnObject
+        )
       );
     } else {
       dispatch(
@@ -81,17 +106,22 @@ export const viewStudioWithAnime = (id) => async (dispatch) => {
 export const viewAllStudio = () => async (dispatch) => {
   dispatch(asyncActions(VIEW_ALL_STUDIOS).loading(true));
   try {
-    const response = axios.get(studioConstants.VIEW_ALL_STUDIOS, {
-      headers: { Authorization: auth.fetchToken() },
+    const response = await axios.get(studioConstants.VIEW_ALL_STUDIOS, {
+      headers: { Authorization: `Bearer ${auth.fetchToken()} ` },
     });
     if (response.status === 200) {
-      dispatch(asyncActions(VIEW_ALL_STUDIOS).success(response.data));
+      dispatch(
+        asyncActions(VIEW_ALL_STUDIOS).success(response.data.returnObject)
+      );
       dispatch(asyncActions(VIEW_ALL_STUDIOS).loading(false));
     }
   } catch (error) {
     if (error.response.status === 401) {
       dispatch(
-        asyncActions(VIEW_ALL_STUDIOS).failure(true, error.response.data)
+        asyncActions(VIEW_ALL_STUDIOS).failure(
+          true,
+          error.response.data.returnObject
+        )
       );
     } else {
       dispatch(asyncActions(VIEW_ALL_STUDIOS).failure(true, error.message));

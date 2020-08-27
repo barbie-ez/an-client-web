@@ -8,16 +8,21 @@ import { genreConstants, viewGenreConstants } from "../constants/constants";
 export const createGenre = (genre) => async (dispatch) => {
   dispatch(asyncActions(CREATE_GENRE).loading(true));
   try {
-    const response = axios.post(genreConstants.CREATE_GENRE, genre, {
-      headers: { Authorization: auth.fetchToken() },
+    const response = await axios.post(genreConstants.CREATE_GENRE, genre, {
+      headers: { Authorization: `Bearer ${auth.fetchToken()} ` },
     });
     if (response.status === 201) {
-      dispatch(asyncActions(CREATE_GENRE).success(response.data));
+      dispatch(asyncActions(CREATE_GENRE).success(response.data.returnObject));
       dispatch(asyncActions(CREATE_GENRE).loading(false));
     }
   } catch (error) {
     if (error.response.status === 401) {
-      dispatch(asyncActions(CREATE_GENRE).failure(true, error.response.data));
+      dispatch(
+        asyncActions(CREATE_GENRE).failure(
+          true,
+          error.response.data.returnObject
+        )
+      );
     } else {
       dispatch(asyncActions(CREATE_GENRE).failure(true, error.message));
     }
@@ -28,18 +33,20 @@ export const createGenre = (genre) => async (dispatch) => {
 export const viewGenre = (id) => async (dispatch) => {
   dispatch(asyncActions(VIEW_GENRE).loading(true));
   try {
-    const response = axios.get(viewGenreConstants(id).VIEW_GENRE, {
+    const response = await axios.get(viewGenreConstants(id).VIEW_GENRE, {
       id,
-      headers: { Authorization: auth.fetchToken() },
+      headers: { Authorization: `Bearer ${auth.fetchToken()} ` },
     });
 
     if (response.status === 200) {
-      dispatch(asyncActions(VIEW_GENRE).success(response.data));
+      dispatch(asyncActions(VIEW_GENRE).success(response.data.returnObject));
       dispatch(asyncActions(VIEW_GENRE).loading(false));
     }
   } catch (error) {
     if (error.response.status === 401) {
-      dispatch(asyncActions(VIEW_GENRE).failure(true, error.response.data));
+      dispatch(
+        asyncActions(VIEW_GENRE).failure(true, error.response.data.returnObject)
+      );
     } else {
       dispatch(asyncActions(VIEW_GENRE).failure(true, error.message));
     }
@@ -50,19 +57,27 @@ export const viewGenre = (id) => async (dispatch) => {
 export const viewGenreWithAnime = (id) => async (dispatch) => {
   dispatch(asyncActions(VIEW_GENRE_WITH_ANIME).loading(true));
   try {
-    const response = axios.get(viewGenreConstants(id).VIEW_GENRE_WITH_ANIME, {
-      id,
-      headers: { Authorization: auth.fetchToken() },
-    });
+    const response = await axios.get(
+      viewGenreConstants(id).VIEW_GENRE_WITH_ANIME,
+      {
+        id,
+        headers: { Authorization: `Bearer ${auth.fetchToken()} ` },
+      }
+    );
 
     if (response.status === 200) {
-      dispatch(asyncActions(VIEW_GENRE_WITH_ANIME).success(response.data));
+      dispatch(
+        asyncActions(VIEW_GENRE_WITH_ANIME).success(response.data.returnObject)
+      );
       dispatch(asyncActions(VIEW_GENRE_WITH_ANIME).loading(false));
     }
   } catch (error) {
     if (error.response.status === 401) {
       dispatch(
-        asyncActions(VIEW_GENRE_WITH_ANIME).failure(true, error.response.data)
+        asyncActions(VIEW_GENRE_WITH_ANIME).failure(
+          true,
+          error.response.data.returnObject
+        )
       );
     } else {
       dispatch(
@@ -76,17 +91,22 @@ export const viewGenreWithAnime = (id) => async (dispatch) => {
 export const viewAllGenre = () => async (dispatch) => {
   dispatch(asyncActions(VIEW_ALL_GENRES).loading(true));
   try {
-    const response = axios.get(genreConstants.VIEW_ALL_GENRE, {
-      headers: { Authorization: auth.fetchToken() },
+    const response = await axios.get(genreConstants.VIEW_ALL_GENRE, {
+      headers: { Authorization: `Bearer ${auth.fetchToken()} ` },
     });
     if (response.status === 200) {
-      dispatch(asyncActions(VIEW_ALL_GENRES).success(response.data));
+      dispatch(
+        asyncActions(VIEW_ALL_GENRES).success(response.data.returnObject)
+      );
       dispatch(asyncActions(VIEW_ALL_GENRES).loading(false));
     }
   } catch (error) {
     if (error.response.status === 401) {
       dispatch(
-        asyncActions(VIEW_ALL_GENRES).failure(true, error.response.data)
+        asyncActions(VIEW_ALL_GENRES).failure(
+          true,
+          error.response.data.returnObject
+        )
       );
     } else {
       dispatch(asyncActions(VIEW_ALL_GENRES).failure(true, error.message));

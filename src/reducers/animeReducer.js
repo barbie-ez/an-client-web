@@ -7,7 +7,7 @@ import {
 import { act } from "react-dom/test-utils";
 
 const initState = {
-  anime: [],
+  animes: [],
   anime: {},
   loading: false,
   error: false,
@@ -28,7 +28,7 @@ const animeReducer = (state = initState, action) => {
     case asyncActionName(CREATE_ANIME).success:
       return {
         ...state,
-        anime: action.payload.anime,
+        anime: action.payload,
       };
 
     case asyncActionName(VIEW_ANIME).failure:

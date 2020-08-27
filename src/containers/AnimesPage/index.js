@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Anime } from "../../components/Anime";
 import { Slider } from "../../components/Slider";
-
-const AnimesPage = () => {
+import { viewAllAnime } from "../../requests/animeRequest";
+import { connect } from "react-redux";
+const AnimesPage = (props) => {
+  useEffect(() => {
+    props.viewAllAnime();
+  }, []);
   return (
     <>
       <Slider />
-      <Anime />
+      <Anime animes={props.anime.animes} />
     </>
   );
 };
 
-export default AnimesPage;
+const mapStateToProps = ({ anime }) => ({ anime });
+export default connect(mapStateToProps, { viewAllAnime })(AnimesPage);

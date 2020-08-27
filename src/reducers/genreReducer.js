@@ -28,7 +28,7 @@ const genreReducer = (state = initState, action) => {
     case asyncActionName(CREATE_GENRE).success:
       return {
         ...state,
-        studio: action.payload.studio,
+        genre: action.payload,
       };
 
     case asyncActionName(VIEW_GENRE).failure:

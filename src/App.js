@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./styles/index.scss";
-import { Header } from "./components/Header/index";
+import Header from "./components/Header/index";
 import { Footer } from "./components/Footer/index";
 import AnimesPage from "./containers/AnimesPage";
 import AnimeDetails from "./containers/AnimeDetails";
@@ -9,11 +9,12 @@ import { Provider } from "react-redux";
 import store from "./reducers/store";
 import { BrowserRouter, Route } from "react-router-dom";
 import Switch from "react-bootstrap/esm/Switch";
+import { history } from "./helper/history";
 
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <Header />
         <Switch>
           <Route path="/" exact component={AnimesPage} />

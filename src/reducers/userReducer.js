@@ -2,10 +2,10 @@ import { LOG_IN, LOG_OUT } from "../actionTypes/userActionType";
 import { asyncActionName } from "../utils/asyncUtil";
 const initState = {
   user: {},
-  token: null,
+  //token: null,
   loading: false,
   error: false,
-  errMessage: null,
+  errorMessage: null,
 };
 
 const userReducer = (state = initState, action) => {
@@ -17,14 +17,14 @@ const userReducer = (state = initState, action) => {
       return {
         ...state,
         error: action.payload.status,
-        errMessage: action.payload.error,
+        errorMessage: action.payload.error,
       };
     }
     case asyncActionName(LOG_IN).success: {
       return {
         ...state,
-        token: action.payload.user.token,
-        user: action.payload.user,
+        //token: action.payload.user.token,
+        user: action.payload,
       };
     }
 
