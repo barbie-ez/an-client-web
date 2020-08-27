@@ -8,6 +8,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import "./index.scss";
 import LoginModal from "../Modals/LoginModal";
 import RegisterModal from "../Modals/RegisterModal";
+import Link from "react-router-dom/Link";
 
 export const Header = () => {
   const [loginModalShow, setLoginModalShow] = React.useState(false);
@@ -23,9 +24,9 @@ export const Header = () => {
           </Col>
           <Col>
             <nav className="nav-right">
-              <a href="#">Anime</a>
-              <a href="#">Studio</a>
-              <a href="#">Forum</a>
+              <Link to="/">Anime</Link>
+              <Link to="/">Studio</Link>
+              <Link to="/">Forum</Link>
               <DropdownButton
                 key="Secondary"
                 id="dropdown-basic-button"

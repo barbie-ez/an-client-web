@@ -1,0 +1,4 @@
+export const CREATE_GENRE = "CREATE_GENRE";
+export const VIEW_GENRE = "VIEW_GENRE";
+export const VIEW_ALL_GENRES = "VIEW_ALL_GENRES";
+export const VIEW_GENRE_WITH_ANIME = "VIEW_GENRE_WITH_ANIME";
