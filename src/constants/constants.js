@@ -1,4 +1,9 @@
 const BASE_URL = process.env.REACT_APP_API_URL;
+const IMAGE_BASE_URL = process.env.REACT_APP_API_URL_IMAGES;
+
+export const imageConstants = {
+  IMAGEURL: `${IMAGE_BASE_URL}/images`,
+};
 
 export const userConstants = {
   REGISTER: `${BASE_URL}/user/register`,

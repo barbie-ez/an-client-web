@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+
+.articlegenre {
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  .genre {
+    margin-bottom: 3em;
+    background-color: $secondary;
+    max-height: 40vh;
+    overflow-y: auto;
+    .card .card-img-top {
+      height: 20vh;
+    }
+    img {
+      object-fit: cover;
+      //height: 30%;
+    }
+  }
+
+  h2 {
+    color: $secondary;
+    font-size: 3vw;
+    padding-bottom: 1em;
+    text-align: center;
+    border-bottom: 1px;
+  }
+  .h5 {
+    color: $primary;
+  }
+}

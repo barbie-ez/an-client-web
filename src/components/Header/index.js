@@ -41,8 +41,8 @@ const Header = (props) => {
               {auth.isloggedIn() || Object.entries(props.user).length ? (
                 <>
                   <Link to="/">Anime</Link>
-                  <Link to="/">Studio</Link>
-                  <Link to="/">Forum</Link>
+                  <Link to="/studio">Studio</Link>
+                  <Link to="/genre">Genre</Link>
                   <DropdownButton
                     key="Secondary"
                     id="dropdown-basic-button"

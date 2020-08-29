@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.articlestudio {
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  .studio {
+    margin-bottom: 3em;
+    background-color: $secondary;
+  }
+
+  h2 {
+    color: $secondary;
+    font-size: 3vw;
+    padding-bottom: 1em;
+    text-align: center;
+    border-bottom: 1px;
+  }
+  .h5 {
+    color: $primary;
+  }
+}

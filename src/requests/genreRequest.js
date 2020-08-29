@@ -2,7 +2,12 @@ import axios from "axios";
 
 import { asyncActions } from "../utils/asyncUtil";
 import auth from "../helper/auth";
-import { CREATE_GENRE, VIEW_ALL_GENRES } from "../actionTypes/genreActionType";
+import {
+  CREATE_GENRE,
+  VIEW_ALL_GENRES,
+  VIEW_GENRE_WITH_ANIME,
+  VIEW_GENRE,
+} from "../actionTypes/genreActionType";
 import { genreConstants, viewGenreConstants } from "../constants/constants";
 
 export const createGenre = (genre) => async (dispatch) => {

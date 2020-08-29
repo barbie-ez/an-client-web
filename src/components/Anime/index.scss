@@ -1,13 +1,32 @@
 @import "../../styles/variables";
 
 .article {
-  background-color: $primary !important;
+  //background-color: $third !important;
   padding-top: 3em;
   padding-bottom: 3em;
+  margin: 3em;
+  margin-bottom: 0;
 
   .anime {
-    margin-bottom: 3em;
-    background-color: $secondary;
+    margin: 1em;
+    background-color: $third;
+    max-height: 25vh;
+    min-height: 25vh;
+    overflow-y: auto;
+    .card .card-img-top {
+      height: 25vh;
+    }
+    img {
+      object-fit: cover;
+      height: 25vh;
+    }
+    .more {
+      width: 95%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-right: 1.5em;
+    }
   }
   h2 {
     color: $secondary;
@@ -15,5 +34,11 @@
     padding-bottom: 1em;
     text-align: center;
     border-bottom: 1px;
+  }
+  .h5 {
+    color: $secondary !important;
+  }
+  .card-text {
+    color: $secondary;
   }
 }

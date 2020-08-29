@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+
+.background {
+  //background-color: $primary;
+  background-image: url(../../images/the-promised-neverland.jpeg);
+  max-height: 82.5vh;
+  min-height: 82.5vh;
+  overflow-y: auto;
+}
+.container {
+  margin: 0 auto;
+  background-color: $third !important;
+  max-height: 82.5vh;
+  min-height: 82.5vh;
+  overflow-y: auto;
+  color: $secondary;
+  h1 {
+    text-align: center;
+  }
+  h3 {
+    color: $text-subhead !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+  h4 {
+    text-align: center;
+  }
+}
